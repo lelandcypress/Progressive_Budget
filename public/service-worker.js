@@ -1,7 +1,14 @@
-const FILES_TO_CACHE = "/webpack.config.js";
+const FILES_TO_CACHE = [
+  "/webpack.config.js",
+  "/",
+  "/index.html",
+  "/index.js",
+  "/style.css",
+  "/manifest.webmanifest",
+];
 
-const STATIC_CACHE = "static-cache-v1";
-const RUNTIME_CACHE = "runtime-cache";
+const STATIC_CACHE = "static-cache-v2";
+const DATA_CACHE = "data-cache-v1";
 
 self.addEventListener("install", (e) => {
   e.waitUntil(
@@ -14,7 +21,7 @@ self.addEventListener("install", (e) => {
 
 // The activate handler takes care of cleaning up old caches.
 self.addEventListener("activate", (e) => {
-  const currentCaches = [STATIC_CACHE, RUNTIME_CACHE];
+  const currentCaches = [STATIC_CACHE, DATA_CACHE];
   e.waitUntil(
     caches
       .keys()
@@ -49,7 +56,7 @@ self.addEventListener("fetch", (event) => {
   if (event.request.url.includes("/api")) {
     // make network request and fallback to cache if network request fails (offline)
     event.respondWith(
-      caches.open(RUNTIME_CACHE).then((cache) => {
+      caches.open(DATA_CACHE).then((cache) => {
         return fetch(event.request)
           .then((response) => {
             cache.put(event.request, response.clone());
@@ -69,7 +76,7 @@ self.addEventListener("fetch", (event) => {
       }
 
       // request is not in cache. make network request and cache the response
-      return caches.open(RUNTIME_CACHE).then((cache) => {
+      return caches.open(DATA_CACHE).then((cache) => {
         return fetch(event.request).then((response) => {
           return cache.put(event.request, response.clone()).then(() => {
             return response;
