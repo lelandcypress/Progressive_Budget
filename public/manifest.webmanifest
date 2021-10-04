@@ -1,0 +1,17 @@
+{
+    "name":"Bad Guy Budgeting App",
+    "short_name":"Bad App",
+    "icons":[{
+        "src":"icons/icon-192x192.png",
+        "sizes":"192x192",
+        "type":"img/png"},
+        {
+        "src":"icons/icon-512x512.png",
+        "sizes":"512x512",
+        "type":"img/png"}
+    ],
+     "theme_color": "#dddddd",
+     "background_color": "#dddddd",
+     "start_url": "/",
+     "display": "standalone"
+}

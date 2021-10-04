@@ -29,9 +29,9 @@ const config = {
   plugins: [
     new WebpackPwaManifest({
       fingerprints: false,
-      name: "Progressive Budget App",
-      short_name: "Progressive Bugdet",
-      description: "Keep track of your expensese both online and offline",
+      name: "Bad Guy Budgeting App",
+      short_name: "Bad App",
+      description: "Keep track of your dastardly deeds both online and offline",
       background_color: "#dddddd",
       theme_color: "#dddddd",
       "theme-color": "#dddddd",
@@ -39,6 +39,11 @@ const config = {
       icons: [
         {
           src: path.resolve("public/icons/icon-192x192.png"),
+          sizes: [96, 128, 192, 256, 384, 512],
+          destination: path.join("assets", "icons"),
+        },
+        {
+          src: path.resolve("public/icons/icon-512x512.png"),
           sizes: [96, 128, 192, 256, 384, 512],
           destination: path.join("assets", "icons"),
         },
