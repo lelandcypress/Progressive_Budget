@@ -14,6 +14,8 @@
 
 Bad Guy Budgetting: Do you need a convenient way to manage your ill gotten gains? Even without internet connectios? Well look no further, using JavaScript, Mongo, and IndexDB, this Progressive Web App will help you track the evilest of heists.
 
+Track your evil deeds here: https://immense-tundra-72985.herokuapp.com/
+
 ## Installation
 
 No installation instructions
